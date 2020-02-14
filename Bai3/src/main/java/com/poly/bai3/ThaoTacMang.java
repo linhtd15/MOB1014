@@ -23,6 +23,8 @@ public class ThaoTacMang {
         for(int i=0;i<arr.length;i++){
             System.out.println(arr[i]+" ");
         }
+        //Sắp xếp mảng
+        Arrays.sort(arr);
         
     }
 }

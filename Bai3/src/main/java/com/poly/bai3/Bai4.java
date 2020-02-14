@@ -5,42 +5,27 @@
  */
 package com.poly.bai3;
 import java.util.Scanner;
+import java.util.Arrays;
 /**
  *
  * @author LinhTD
  */
 public class Bai4 {
-     private static Scanner us;
     public static void main(String[] args) {
-        us = new Scanner(System.in);
+        Scanner sc = new Scanner(System.in);
         System.out.print("Nhap so luong sinh vien = ");
-        int n = us.nextInt();
-        String []A = new String[n];
-        int B[] = new int[n];
+        int n = sc.nextInt();
+        String hoten[] = new String[n];
+        int diem[] = new int[n];
         for (int i = 0; i < n; i++) {
             System.out.println("- Nhap thong tin sinh vien thu " + i + " : ");
             System.out.print("Ho ten sv: ");
-            A[i] = new Scanner(System.in).nextLine();
+            hoten[i] = new Scanner(System.in).nextLine();
             System.out.print("Diem : ");
-            B[i] = us.nextInt(); 
-
+            diem[i] = sc.nextInt(); 
         }
-        for (int i = 0; i < n; i++) {
-            if (B[i] < 5) {
-                System.out.println("Ten : " + A[i] + "\n Diem: " + B[i] + "\nHoc Luc: yeu");
-            }
-            if (B[i] > 5 && B[i] < 6.5) {
-                System.out.println("Ten : " + A[i] + "\n Diem: " + B[i] + "\nHoc Luc: trung binh");
-            }
-            if (B[i] >= 6.5 && B[i] < 7.5) {
-                System.out.println("Ten : " + A[i] + "\n Diem: " + B[i] + "\nHoc Luc: kha");
-            }
-            if (B[i] >= 7.5 && B[i] < 9) {
-                System.out.println("Ten : " + A[i] + "\n Diem: " + B[i] + "\nHoc Luc: gioi");
-            }
-            if (B[i] >= 9) {
-                System.out.println("Ten : " + A[i] + "\n Diem: " + B[i] + "\nHoc Luc: xuat sac");
-            }
-        }
+       System.out.println(Arrays.toString(hoten));
+       System.out.println("");
+       System.out.println(Arrays.toString(diem));
     }
 }
