@@ -52,40 +52,13 @@ public class SinhVien {
         return diemJava2;
     }
 
-    //Phương thức Validate Điểm
-    private boolean kiemTraDiem(float diem) {
-        if (diem >= 0 && diem <= 10) {
-            return true;
-        } else {
-            return false;
-        }
-    }
-
-    //Phương thức nhập sinh viên
-    public void nhapSinhVien() {
-        Scanner sc = new Scanner(System.in);
-        System.out.print("\tNhap ma Sinh vien: ");
-        maSV = sc.nextLine();
-        System.out.print("\tNhap ten Sinh vien: ");
-        tenSV = sc.nextLine();
-        do {
-            System.out.print("\tNhap diem Java 1: ");
-            diemJava1 = sc.nextFloat();
-        } while (!kiemTraDiem(diemJava1));
-        do {
-            System.out.print("\tNhap diem Java 2: ");
-            diemJava2 = sc.nextFloat();
-        } while (!kiemTraDiem(diemJava2));
-
-    }
-
     //Phương thức tính Điểm trung bình
-    private float diemTrungBinh() {
+    public float diemTrungBinh() {
         return (diemJava1 + diemJava2) / 2;
     }
 
     //Phương thức Xếp loại
-    private String xepLoai() {
+    public String xepLoai() {
         if (diemTrungBinh() >= 9) {
             return "Xuat sac";
         } else if (diemTrungBinh() >= 8) {
@@ -98,12 +71,13 @@ public class SinhVien {
             return "Yeu";
         }
     }
-
-    //Overrides toString
+    //Overrides
     @Override
-    public String toString() {
-        return "Ma SV: " + maSV + ", Ten SV: " + tenSV + ", Diem Java1: "
-                + diemJava1 + ", Diem Java2: " + diemJava2
-                + ", DTB: " + diemTrungBinh() + ", Xep loai: " + xepLoai();
+    public String toString(){
+        return "Ma Sinh vien: " + this.maSV + ", Ten Sinh vien: " 
+                + this.tenSV + ", Diem Java1: " + this.diemJava1
+                + ", Diem Java2: " + this.diemJava2
+                + ", Diem Trung binh: " + this.diemTrungBinh()
+                + ", Xep loai: " + this.xepLoai() +"\n";
     }
 }
