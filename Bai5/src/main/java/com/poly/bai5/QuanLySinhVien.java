@@ -2,6 +2,8 @@ package com.poly.bai5;
 
 import java.util.Scanner;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class QuanLySinhVien {
 
@@ -102,4 +104,31 @@ public class QuanLySinhVien {
         }
         else System.out.println("Khong tim thay sinh vien co ma "+maSV);
     }
+    //Sắp xếp sinh viên theo tiêu chí: Điểm trung bình
+    Comparator<SinhVien> compSV=new Comparator<SinhVien>() {
+        @Override
+        public int compare(SinhVien sv1, SinhVien sv2) {
+            if(sv1.diemTrungBinh()>sv2.diemTrungBinh())
+                return 1;
+            return -1;
+        }
+    };
+    
+    public void sxSinhVienTheoDiem(){
+        Collections.sort(dsSinhVien, compSV);
+    }
+    //Sắp xếp sinh viên theo tiêu chí: Tên sinh viên (Chưa ổn)
+    Comparator<SinhVien> comp = new Comparator<SinhVien>() {
+        @Override
+        public int compare(SinhVien sv1, SinhVien sv2) {
+            return sv1.getTenSV().compareToIgnoreCase(sv2.getTenSV());
+        }
+    };
+    public void sxSinhVienTheoTen(){
+        Collections.sort(dsSinhVien,comp);
+    }
+    
+    
+    
+    
 }
