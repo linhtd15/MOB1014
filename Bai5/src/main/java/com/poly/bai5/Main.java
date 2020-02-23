@@ -10,7 +10,7 @@ public class Main {
         System.out.println("3. Sua sinh vien theo ma");
         System.out.println("4. Xoa sinh vien theo ma");
         System.out.println("5. Sap xep sinh vien theo diem TB");
-        System.out.println("6. Sap xep sinh vien theo ten sinh vien");
+        System.out.println("6. Sap xep sinh vien theo ten");
         System.out.println("0. Thoat chuong trinh");
         System.out.println("================================================");
         System.out.print("Chon chuc nang [0-4]: ");
@@ -33,19 +33,20 @@ public class Main {
                 case 3:
                     System.out.print("Nhap ma sinh vien can sua: ");
                     qlSV.suaSinhVien(new Scanner(System.in).nextLine());
+                    System.out.println("Da thuc hien sua sinh vien!!!");
                     break;
                 case 4:
                     System.out.print("Nhap ma sinh vien can xoa: ");
                     qlSV.xoaSinhVien(new Scanner(System.in).nextLine());
-                    System.out.print("Da xoa sinh vien thanh cong! ");
+                    System.out.println("Da thuc hien xoa sinh vien!!!");
                     break;
                 case 5:
                     qlSV.sxSinhVienTheoDiem();
-                    System.out.println("Sinh vien da duoc sap xep");
+                    System.out.println("Da thuc hien sap xep sinh vien!!!");
                     break;
                 case 6:
                     qlSV.sxSinhVienTheoTen();
-                    System.out.println("Sinh vien da duoc sap xep");
+                    System.out.println("Da thuc hien sap xep sinh vien!!!");
                     break;
                 case 0:
                     System.out.println("Thoat chuong trinh");

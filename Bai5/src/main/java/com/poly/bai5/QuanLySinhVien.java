@@ -73,12 +73,13 @@ public class QuanLySinhVien {
             System.out.format("%-15s\n", sv.xepLoai());
         }
     }
+
     //Sửa sinh viên theo mã sinh viên
-    public void suaSinhVien(String maSV){
+    public void suaSinhVien(String maSV) {
         boolean tonTai = false;
-        for(int i=0; i<dsSinhVien.size();i++){
-            if(dsSinhVien.get(i).getMaSV().equalsIgnoreCase(maSV)){
-                tonTai=true;
+        for (int i = 0; i < dsSinhVien.size(); i++) {
+            if (dsSinhVien.get(i).getMaSV().equalsIgnoreCase(maSV)) {
+                tonTai = true;
                 System.out.print("Nhap ten sinh vien: ");
                 dsSinhVien.get(i).setTenSV(sc.nextLine());
                 System.out.print("Nhap diem Java1: ");
@@ -86,48 +87,51 @@ public class QuanLySinhVien {
                 System.out.print("Nhap diem Java2: ");
                 dsSinhVien.get(i).setDiemJava2(nhapDiemJava());
                 break;
-            }  
+            }
         }
-        if(!tonTai) System.out.println("Khong tim thay sinh vien co ma "+maSV);
+        if (!tonTai) {
+            System.out.println("Khong tim thay sinh vien co ma " + maSV);
+        }
     }
-    //Xóa sinh viên
-    public void xoaSinhVien(String maSV){
-        SinhVien sv=null;
-        for(int i=0;i<dsSinhVien.size();i++){
-            if(dsSinhVien.get(i).getMaSV().equalsIgnoreCase(maSV)){
-                sv = dsSinhVien.get(i);
+
+    //Xóa sinh viên theo mã sinh viên
+    //Xóa đối tượng chứ không xóa theo index
+    public void xoaSinhVien(String maSV) {
+        SinhVien sv = null;
+        for (SinhVien x : dsSinhVien) {
+            if (x.getMaSV().equalsIgnoreCase(maSV)) {
+                sv = x;
                 break;
             }
         }
-        if(sv != null){
+        if (sv != null) {
             dsSinhVien.remove(sv);
+        } else {
+            System.out.println("Khong tim thay sinh vien co ma " + maSV);
         }
-        else System.out.println("Khong tim thay sinh vien co ma "+maSV);
     }
-    //Sắp xếp sinh viên theo tiêu chí: Điểm trung bình
-    Comparator<SinhVien> compSV=new Comparator<SinhVien>() {
+    //Sắp xếp danh sách sinh viên theo điểm trung bình
+    Comparator<SinhVien> compDiem = new Comparator<SinhVien>() {
         @Override
         public int compare(SinhVien sv1, SinhVien sv2) {
-            if(sv1.diemTrungBinh()>sv2.diemTrungBinh())
+            if(sv1.diemTrungBinh()> sv2.diemTrungBinh())
                 return 1;
             return -1;
         }
     };
-    
     public void sxSinhVienTheoDiem(){
-        Collections.sort(dsSinhVien, compSV);
+        Collections.sort(dsSinhVien, compDiem);
     }
-    //Sắp xếp sinh viên theo tiêu chí: Tên sinh viên (Chưa ổn)
-    Comparator<SinhVien> comp = new Comparator<SinhVien>() {
+    //Sắp xếp sinh viên theo tên (Note: Thực hiện tối ưu???)
+    Comparator<SinhVien> compTen = new Comparator<SinhVien>() {
         @Override
         public int compare(SinhVien sv1, SinhVien sv2) {
             return sv1.getTenSV().compareToIgnoreCase(sv2.getTenSV());
         }
     };
     public void sxSinhVienTheoTen(){
-        Collections.sort(dsSinhVien,comp);
+        Collections.sort(dsSinhVien, compTen);
     }
-    
     
     
     
